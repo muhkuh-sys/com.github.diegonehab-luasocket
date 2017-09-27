@@ -10,11 +10,14 @@ cmake_minimum_required ( VERSION 2.8 )
 #include ( lua )
 
 ENABLE_TESTING()
-FIND_PACKAGE(PythonInterp REQUIRED)
+FIND_PACKAGE(PythonInterp 2.7 REQUIRED)
 
 
 # Configuration
 option ( LUASOCKET_UNIX "Use only unix domain features." OFF )
+
+# Activate the compatibility functions for LUA5.3.
+ADD_DEFINITIONS(-DLUA_COMPAT_5_2)
 
 # The standard luasocket build has this enabled in release mode.
 # It is required for running the test suite.
