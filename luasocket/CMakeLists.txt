@@ -43,10 +43,6 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	                    PATCH_COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/templates ${CMAKE_CURRENT_BINARY_DIR}/luasocket-3.0-rc1/src/TARGET_luasocket
 	                    CMAKE_ARGS ${PRJ_CMAKE_ARGS}
 	                    TEST_COMMAND make test
-	                    INSTALL_COMMAND make install DESTDIR=${CMAKE_CURRENT_BINARY_DIR}/rock
+	                    INSTALL_COMMAND make install DESTDIR=${CMAKE_BINARY_DIR}/install
 	)
 ENDIF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
-
-#ADD_CUSTOM_COMMAND(TARGET TARGET_luasocket
-#                   POST_BUILD
-#                   COMMAND "${PYTHON_EXECUTABLE}" ${CMAKE_HOME_DIRECTORY}/cmake/create_luarocks_manifest.py --verbose ${CMAKE_CURRENT_BINARY_DIR}/rock ${CMAKE_CURRENT_BINARY_DIR}/rock/rock_manifest)
