@@ -45,4 +45,7 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	                    TEST_COMMAND make test
 	                    INSTALL_COMMAND make install DESTDIR=${CMAKE_BINARY_DIR}/install
 	)
+
+	# Write a version file.
+	FILE(WRITE ${CMAKE_BINARY_DIR}/install/com.github.diegonehab-luasocket.version "SET(com.github.diegonehab-luasocket_VERSION ${VERSION_EXTERNAL}.${VERSION_PACKAGE})")
 ENDIF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
