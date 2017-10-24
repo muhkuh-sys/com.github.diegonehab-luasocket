@@ -6,16 +6,16 @@ set -e
 # Build all artefacts.
 #
 pushd build
-rm -rf com.github.brimworks-lua5.1-lua-zlib
-rm -rf com.github.brimworks-lua5.2-lua-zlib
-rm -rf com.github.brimworks-lua5.3-lua-zlib
+rm -rf com.github.diegonehab-lua5.1-luasocket
+rm -rf com.github.diegonehab-lua5.2-luasocket
+rm -rf com.github.diegonehab-lua5.3-luasocket
 rm -rf lua5.1
 rm -rf lua5.2
 rm -rf lua5.3
 
-mkdir com.github.brimworks-lua5.1-lua-zlib
-mkdir com.github.brimworks-lua5.2-lua-zlib
-mkdir com.github.brimworks-lua5.3-lua-zlib
+mkdir com.github.diegonehab-lua5.1-luasocket
+mkdir com.github.diegonehab-lua5.2-luasocket
+mkdir com.github.diegonehab-lua5.3-luasocket
 mkdir -p lua5.1/windows_x86
 mkdir -p lua5.1/windows_x86_64
 mkdir -p lua5.1/ubuntu_1404_x86
@@ -78,20 +78,20 @@ tar --extract --directory lua5.3/ubuntu_1704_x86_64 --file build_ubuntu_1704_x86
 popd
 
 
-pushd build/com.github.brimworks-lua5.1-lua-zlib
-cmake -DCMAKE_INSTALL_PREFIX="" ../../lua-zlib/installer/lua5.1
+pushd build/com.github.diegonehab-lua5.1-luasocket
+cmake -DCMAKE_INSTALL_PREFIX="" ../../luasocket/installer/lua5.1
 make
 make package
 popd
 
-pushd build/com.github.brimworks-lua5.2-lua-zlib
-cmake -DCMAKE_INSTALL_PREFIX="" ../../lua-zlib/installer/lua5.2
+pushd build/com.github.diegonehab-lua5.2-luasocket
+cmake -DCMAKE_INSTALL_PREFIX="" ../../luasocket/installer/lua5.2
 make
 make package
 popd
 
-pushd build/com.github.brimworks-lua5.3-lua-zlib
-cmake -DCMAKE_INSTALL_PREFIX="" ../../lua-zlib/installer/lua5.3
+pushd build/com.github.diegonehab-lua5.3-luasocket
+cmake -DCMAKE_INSTALL_PREFIX="" ../../luasocket/installer/lua5.3
 make
 make package
 popd
