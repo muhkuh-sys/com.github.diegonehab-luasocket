@@ -5,14 +5,14 @@
 	      artifact="lua5.2-luasocket"
 	      version="@PROJECT_VERSION@"
 	      vcs-id="@PROJECT_VERSION_VCS@">
-		<license name="x"/>
-		<author name="y" url="z" />
+		<license name="MIT"/>
+		<author name="Diego Nehab" url="https://github.com/muhkuh-sys/com.github.diegonehab-luasocket" />
 		<description>
-			lalala
+			Network support for the Lua language
 		</description>
 	</info>
 	<dependencies>
-		<build-dependency group="org.lua" module="lua" artifact="lua" version="5.2.4.1"/>
+		<build-dependency group="org.lua" module="lua" artifact="lua" version="5.2"/>
 		<dependency group="org.lua" module="lua" artifact="lua"/>
 	</dependencies>
 </jonchki-artifact>
