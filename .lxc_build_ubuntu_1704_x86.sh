@@ -13,7 +13,7 @@ PRJDIR=`pwd`
 mkdir -p ${PRJDIR}/build
 
 # Start the container and mount the project folder.
-lxc launch mbs-ubuntu-1604-x86 ${CONTAINER} -c security.privileged=true
+lxc init mbs-ubuntu-1704-x86 ${CONTAINER}
 lxc config device add ${CONTAINER} projectDir disk source=${PRJDIR} path=/tmp/work
 lxc start ${CONTAINER}
 sleep 5
@@ -25,9 +25,9 @@ lxc exec ${CONTAINER} -- bash -c 'mount --bind /tmp/build /tmp/work/build'
 
 # Build the 32bit version.
 lxc exec ${CONTAINER} -- bash -c 'cd /tmp/work && bash .build03_linux.sh'
-lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1604_x86_lua5.1.tar.gz --gzip --directory /tmp/work/build/linux/lua5.1/install .'
-lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1604_x86_lua5.2.tar.gz --gzip --directory /tmp/work/build/linux/lua5.2/install .'
-lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1604_x86_lua5.3.tar.gz --gzip --directory /tmp/work/build/linux/lua5.3/install .'
+lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1704_x86_lua5.1.tar.gz --gzip --directory /tmp/work/build/linux/lua5.1/install .'
+lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1704_x86_lua5.2.tar.gz --gzip --directory /tmp/work/build/linux/lua5.2/install .'
+lxc exec ${CONTAINER} -- bash -c 'tar --create --file /tmp/work/build/build_ubuntu_1704_x86_lua5.3.tar.gz --gzip --directory /tmp/work/build/linux/lua5.3/install .'
 lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1704_x86_lua5.1.tar.gz build/
 lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1704_x86_lua5.2.tar.gz build/
 lxc file pull ${CONTAINER}/tmp/work/build/build_ubuntu_1704_x86_lua5.3.tar.gz build/
