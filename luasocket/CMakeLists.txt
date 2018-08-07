@@ -127,7 +127,7 @@ IF((BUILDCFG_ONLY_JONCHKI_CFG STREQUAL "OFF"))
 	#
 	# Filter the pom.xml file.
 	#
-	SET(POM_ARTIFACT_ID  "luasocket")
+	SET(POM_ARTIFACT_ID  "lua${BUILDCFG_LUA_VERSION}-luasocket")
 	SET(POM_GROUP_ID     "com.github.diegonehab")
 	SET(POM_VERSION      "${PROJECT_VERSION}")
 	SET(POM_PACKAGING    "tar.xz")
