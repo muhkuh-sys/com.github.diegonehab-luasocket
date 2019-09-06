@@ -1,0 +1,21 @@
+diff -uNr luasocket-3.0-rc1/src/options.c luasocket-3.0-rc1_patches/src/options.c
+--- luasocket-3.0-rc1/src/options.c	2013-06-14 13:27:32.000000000 +0200
++++ luasocket-3.0-rc1_patches/src/options.c	2019-09-06 12:24:41.788254144 +0200
+@@ -37,7 +37,7 @@
+     while (opt->name && strcmp(name, opt->name))
+         opt++;
+     if (!opt->func) {
+-        char msg[45];
++        char msg[58];
+         sprintf(msg, "unsupported option `%.35s'", name);
+         luaL_argerror(L, 2, msg);
+     }
+@@ -50,7 +50,7 @@
+     while (opt->name && strcmp(name, opt->name))
+         opt++;
+     if (!opt->func) {
+-        char msg[45];
++        char msg[58];
+         sprintf(msg, "unsupported option `%.35s'", name);
+         luaL_argerror(L, 2, msg);
+     }
