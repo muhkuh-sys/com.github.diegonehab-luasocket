@@ -41,10 +41,10 @@ IF((BUILDCFG_ONLY_JONCHKI_CFG STREQUAL "OFF"))
 
 
 	ExternalProject_Add(TARGET_luasocket
-	                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/luasocket-3.0-rc1
+	                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/luasocket
 	                    URL ${CMAKE_CURRENT_SOURCE_DIR}/luasocket-3.0-rc1.tar.gz
 	                    URL_HASH SHA1=aff9122b26c01487c06a32133df78c1506af350f
-	                    PATCH_COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/templates ${CMAKE_CURRENT_BINARY_DIR}/luasocket-3.0-rc1/src/TARGET_luasocket
+	                    PATCH_COMMAND "${PYTHON_EXECUTABLE}" ${CMAKE_HOME_DIRECTORY}/cmake/tools/apply_patches.py --working-folder ${CMAKE_CURRENT_BINARY_DIR}/luasocket/src/TARGET_luasocket --patch-folder ${CMAKE_CURRENT_SOURCE_DIR}/patches --strip 1 --copy-folder ${CMAKE_CURRENT_SOURCE_DIR}/copy_over
 	                    CMAKE_ARGS ${PRJ_CMAKE_ARGS}
 	                    TEST_COMMAND make test
 	                    INSTALL_COMMAND make install DESTDIR=${CMAKE_BINARY_DIR}/install
